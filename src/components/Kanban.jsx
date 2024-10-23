@@ -2,19 +2,7 @@ import { useState } from "react";
 import kanban from "\../kanban.json";
 export default function Kanban() {
 
-
-    let inProgress = kanban.filter((card) => {
-        return card.status === "In Progress"
-    });
-
-    let toDo = kanban.filter((card) => {
-        return card.status === "To Do"
-    });
-
-    let done = kanban.filter((card) => {
-        return card.status === "Done"
-    });
-    const [cardToDisplay, setCardToDisplay] = useState(inProgress)
+    const [cardToDisplay, setCardToDisplay] = useState(kanban)
 
     const deleteCard = (cardId) => {
         const newArray = cardToDisplay.filter((card) => {
@@ -22,6 +10,19 @@ export default function Kanban() {
         })
         setCardToDisplay(newArray);
     }
+
+    let inProgress = cardToDisplay.filter((card) => {
+        return card.status === "In Progress"
+    });
+
+    let toDo = cardToDisplay.filter((card) => {
+        return card.status === "To Do"
+    });
+
+    let done = cardToDisplay.filter((card) => {
+        return card.status === "Done"
+    });
+
 
 
     function display(Array) {
@@ -50,7 +51,7 @@ export default function Kanban() {
 
         <div className="kanban">
             <div>{display(toDo)}</div>
-            <div>{display(cardToDisplay)}</div>
+            <div>{display(inProgress)}</div>
             <div>{display(done)}</div>
 
         </div>
