@@ -1,8 +1,8 @@
 function Navbar () {
     return (
         <div className="navbar">
-            <h2>Kanban</h2>
             <img className="logo" src="./src/images/logo.png"/>
+            <h1>Kanban Board</h1>
         </div>
     )
 }

@@ -10,11 +10,13 @@ function App() {
       <Navbar />
       <div className="sidebar">
         <Sidebar />
-        <div>
-          <Kanban />
-        </div>
       </div>
+      <div>
+          <Kanban />
+      </div>
+      <div>
       <Footer />
+    </div>
     </div>
   );
 }

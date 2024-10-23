@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(243, 135, 126);
   text-decoration: inherit;
 }
 
@@ -31,9 +31,12 @@ body {
   min-height: 100vh;
 }
 
-h1 {
+.navbar h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  align-content: center;
+  padding-left: 25vw;
+  color: rgb(255, 196, 8);
 }
 
 button {
@@ -43,9 +46,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color:rgb(212, 214, 232);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: rgb(243, 135, 126)
 }
 
 button:hover {
@@ -65,7 +69,37 @@ button:focus-visible {
 }
 
 .card {
-  background-color: #535bf2;
+  background-color: rgb(52, 203, 160);
   border: 1px solid black;
+  border-radius: 25px;
   margin: 3rem;
+}
+.card p {
+  color: rgb(27, 133, 194);
+}
+
+.card h3 {
+  color: rgb(27, 133, 194);
+  font-weight: bold;
+}
+
+.sidebar {
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(27, 133, 194);
+}
+
+.listColumn {
+  background-color: rgb(212, 214, 232);
+  border-radius: 35px;
+  margin: 10px
+}
+
+.listColumn h1 {
+  color: rgb(27, 133, 194);
+  
 }

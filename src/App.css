@@ -41,12 +41,6 @@
   color: #888;
 }
 
-
-@font-face {
-  font-family: 'Satisfy';
-  src: local('Satisfy'), url(https://fonts.googleapis.com/css?family=Satisfy) format('woff');
-}
-
 #mainDev{
   width: 100vw;
   height: 100vh;
