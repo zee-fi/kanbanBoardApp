@@ -1,6 +1,6 @@
 export default function Card(props) {
   return (
-    <div key={props.card.id} className="card">
+    <div className="card">
       <h3>{props.card.title}</h3>
       <p>{props.card.description}</p>
       <p>{props.card.assignee}</p>

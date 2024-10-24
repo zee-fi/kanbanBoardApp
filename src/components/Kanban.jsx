@@ -19,7 +19,7 @@ export default function Kanban() {
         {cardToDisplay
           .filter((card) => card.status === "To Do")
           .map((kanbanObj) => {
-            return <Card card={kanbanObj} deleteFunction={deleteCard} />;
+            return <Card key={kanbanObj.id} card={kanbanObj} deleteFunction={deleteCard} />;
           })}
       </div>
       <div className="listColumn">
@@ -27,7 +27,7 @@ export default function Kanban() {
         {cardToDisplay
           .filter((card) => card.status === "In Progress")
           .map((kanbanObj) => {
-            return <Card card={kanbanObj} deleteFunction={deleteCard} />;
+            return <Card key={kanbanObj.id} card={kanbanObj} deleteFunction={deleteCard} />;
           })}
       </div>
       <div className="listColumn">
@@ -35,7 +35,7 @@ export default function Kanban() {
         {cardToDisplay
           .filter((card) => card.status === "Done")
           .map((kanbanObj) => {
-            return <Card card={kanbanObj} deleteFunction={deleteCard} />;
+            return <Card key={kanbanObj.id} card={kanbanObj} deleteFunction={deleteCard} />;
           })}
       </div>
     </div>
