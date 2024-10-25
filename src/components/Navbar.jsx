@@ -1,10 +1,14 @@
-function Navbar () {
-    return (
-        <div className="navbar">
-            <img className="logo" src="./src/images/logo.png"/>
-            <h1>Kanban Board</h1>
-        </div>
-    )
+import { Link } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <div className="navbar">
+      <Link to="/">
+        <img className="logo" src="./src/images/logo.png" />
+      </Link>
+      <h1>Kanban Board</h1>
+    </div>
+  );
 }
 
 export default Navbar;
