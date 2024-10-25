@@ -1,16 +1,20 @@
-import { Form } from "react-router-dom";
-
-export default function CreateTask() {
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+export default function CreateTask(props) {
+  // State variables to store user input for the new task's details
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
   const [status, setStatus] = useState("To Do");
   const [priority, setPriority] = useState("Medium");
   const [dueDate, setDueDate] = useState();
+  const navigate = useNavigate(); // Hook for navigation to Home Page
 
+  // Form submit handler to create a new task
   const handleSumbit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior
 
+    // Creating a new task object with the values from state variables
     const taskDetails = {
       title: title,
       description: description,
@@ -19,13 +23,19 @@ export default function CreateTask() {
       priority: priority,
       dueDate: dueDate,
     };
+    // Passes the new task to the parent component using the callback function
+    props.callBackToCreate(taskDetails);
 
+    // Reset the form fields to their initial state after submission
     setTitle("");
     setDescription("");
     setAssignee("");
     setStatus("");
     setPriority("");
     setDueDate("");
+
+    // Redirects to the home page
+    navigate("/");
   };
 
   return (
@@ -75,9 +85,9 @@ export default function CreateTask() {
           }}
           name="status"
         >
-          <option value="To Do"></option>
-          <option value="In Progress"></option>
-          <option value="Done"></option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress"> In Progress</option>
+          <option value="Done">Done</option>
         </select>
         Priority:{" "}
         <select
@@ -87,9 +97,9 @@ export default function CreateTask() {
           }}
           name="status"
         >
-          <option value="Medium"></option>
-          <option value="Low"></option>
-          <option value="High"></option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+          <option value="High">High</option>
         </select>
         <label>
           Due Date:{" "}

@@ -8,8 +8,8 @@ import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import "./App.css";
+import CreateTask from "./components/CreateTask";
 
-import Details from "./Pages/TaskDetailsPage";
 function App() {
   const [taskToDisplay, setTaskToDisplay] = useState(kanban);
   const deleteTask = (taskId) => {
@@ -20,33 +20,46 @@ function App() {
   };
 
   const createTask = (newTask) => {
+    const ids = taskToDisplay.map((task) => {
+      return task.id;
+    });
+    const maxId = Math.max(...ids);
+    const nextId = maxId + 1;
+    newTask = {
+      ...newTask,
+      id: nextId,
+    };
     const newArr = [newTask, ...taskToDisplay];
+
     setTaskToDisplay(newArr);
   };
   return (
     <div id="mainDev">
       <Navbar />
-      <div className="sidebar">
+      <div className="homeDiv">
         <Sidebar />
-      </div>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              callBackToCreate={createTask}
-              callBackToDelete={deleteTask}
-              taskToDisplay={taskToDisplay}
-            />
-          }
-        />
-        <Route path="/about" element={<AboutPage />} />
-        <Route
-          path="/details/:taskId"
-          element={<TaskDetailsPage taskToDisplay={taskToDisplay} />}
-        />
-      </Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                callBackToDelete={deleteTask}
+                taskToDisplay={taskToDisplay}
+              />
+            }
+          />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/details/:taskId"
+            element={<TaskDetailsPage taskToDisplay={taskToDisplay} />}
+          />
+          <Route
+            path="/CreateTask"
+            element={<CreateTask callBackToCreate={createTask} />}
+          />
+        </Routes>
+      </div>
       <div>
         <Footer />
       </div>

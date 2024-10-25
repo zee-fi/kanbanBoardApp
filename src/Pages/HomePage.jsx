@@ -22,11 +22,16 @@ export default function Kanban(props) {
       </div>
       <div className="listColumn">
         <h1>In Progress</h1>
+
         {props.taskToDisplay
           .filter((task) => task.status === "In Progress")
           .map((kanbanObj) => {
             return (
-              <Task task={kanbanObj} deleteFunction={props.callBackToDelete} />
+              <Task
+                key={kanbanObj.id}
+                task={kanbanObj}
+                deleteFunction={props.callBackToDelete}
+              />
             );
           })}
       </div>
