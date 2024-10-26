@@ -7,7 +7,7 @@ export default function CreateTask(props) {
   const [assignee, setAssignee] = useState("");
   const [status, setStatus] = useState("To Do");
   const [priority, setPriority] = useState("Medium");
-  const [dueDate, setDueDate] = useState();
+  const [dueDate, setDueDate] = useState("");
   const navigate = useNavigate(); // Hook for navigation to Home Page
 
   // Form submit handler to create a new task

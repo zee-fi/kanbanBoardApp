@@ -4,7 +4,7 @@ export default function TaskDetailsPage(props) {
   const { taskId } = useParams();
 
   const task = props.taskToDisplay.find((element) => {
-    return element.id === parseInt(taskId); // convert taskId from string to int
+    return parseInt(element.id) === parseInt(taskId); // convert taskId from string to int
   });
 
   return (

@@ -1,8 +1,10 @@
-function Footer () {
-    return (
-        <>
-        <a href="https://github.com/zee-fi/kanbanBoardApp">Check us out on Github</a>
-        </>
-    )
+function Footer() {
+  return (
+    <div className="footer">
+      <a href="https://github.com/zee-fi/kanbanBoardApp">
+        Check us out on Github
+      </a>
+    </div>
+  );
 }
- export default Footer;
+export default Footer;

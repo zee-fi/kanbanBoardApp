@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Kanban(props) {
   return (
     <div className="kanban">
-      <div className="listColumn">
+      <div className="listColumn toDo">
         <h1>To Do</h1>
 
         {props.taskToDisplay
@@ -20,7 +20,7 @@ export default function Kanban(props) {
             );
           })}
       </div>
-      <div className="listColumn">
+      <div className="listColumn inProgress">
         <h1>In Progress</h1>
 
         {props.taskToDisplay
@@ -35,7 +35,7 @@ export default function Kanban(props) {
             );
           })}
       </div>
-      <div className="listColumn">
+      <div className="listColumn done">
         <h1>Done</h1>
         {props.taskToDisplay
           .filter((task) => task.status === "Done")
