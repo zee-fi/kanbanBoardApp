@@ -1,6 +1,4 @@
-import CreateTask from "../components/CreateTask";
 import Task from "../components/Task";
-import { Link } from "react-router-dom";
 
 export default function Kanban(props) {
   return (

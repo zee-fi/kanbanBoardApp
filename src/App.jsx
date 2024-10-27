@@ -7,7 +7,6 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
-import "./App.css";
 import CreateTask from "./components/CreateTask";
 
 function App() {
@@ -34,7 +33,7 @@ function App() {
     setTaskToDisplay(newArr);
   };
   return (
-    <div id="mainDev">
+    <>
       <Navbar />
       <div className="homeDiv">
         <Sidebar />
@@ -60,10 +59,8 @@ function App() {
           />
         </Routes>
       </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
