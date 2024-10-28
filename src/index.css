@@ -40,7 +40,7 @@ body {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -74,19 +74,20 @@ button:focus-visible {
   width: 100%;
 }
 
-.task {
+.task, .taskDetails {
   background-color: rgb(52, 203, 160);
   border: 1px solid black;
-  border-radius: 25px;
-  margin: 3rem;
+  border-radius: 20px;
+  margin: 2rem;
   z-index: 10;
 }
 
-.task p {
+.task p, .taskDetails p {
   color: rgb(27, 133, 194);
+  padding: 0.5em;
 }
 
-.task h3 {
+.task h3, .taskDetails h3 {
   color: rgb(27, 133, 194);
   font-weight: bold;
 }
@@ -94,6 +95,7 @@ button:focus-visible {
 .homeDiv {
   display: flex;
   justify-content: space-between;
+  height: 40em;
 }
 
 .navbar {
@@ -108,6 +110,11 @@ button:focus-visible {
   margin: 10px;
   min-width: 30%;
 
+}
+
+.taskDetails {
+  width: 50%;
+  margin: 10em 20em;
 }
 
 .listColumn h1 {

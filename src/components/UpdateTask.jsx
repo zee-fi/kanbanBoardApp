@@ -1,21 +1,28 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-export default function CreateTask(props) {
-  // State variables to store user input for the new task's details
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [assignee, setAssignee] = useState("");
-  const [status, setStatus] = useState("To Do");
-  const [priority, setPriority] = useState("Medium");
-  const [dueDate, setDueDate] = useState("");
-  const navigate = useNavigate(); // Hook for navigation to Home Page
 
-  // Form submit handler to create a new task
-  const handleSumbit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+export default function UpdateTask (props) {
 
-    // Creating a new task object with the values from state variables
+  const { taskId } = useParams();
+  const newArr = props.taskToDisplay.filter((task) => {
+    return taskId === task.id;
+  });
+  const task = newArr[0]
+
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+  const [assignee, setAssignee] = useState(task.assignee);
+  const [status, setStatus] = useState(task.status);
+  const [priority, setPriority] = useState(task.priority);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const taskDetails = {
+      id: taskId,
       title: title,
       description: description,
       assignee: assignee,
@@ -23,29 +30,21 @@ export default function CreateTask(props) {
       priority: priority,
       dueDate: dueDate,
     };
-    // Passes the new task to the parent component using the callback function
-    props.callBackToCreate(taskDetails);
 
-    // Reset the form fields to their initial state after submission
-    setTitle("");
-    setDescription("");
-    setAssignee("");
-    setStatus("");
-    setPriority("");
-    setDueDate("");
+    props.callBackToUpdate(taskDetails);
 
-    // Redirects to the home page
     navigate("/");
-  };
+  }  
+
 
   return (
-    <form onSubmit={handleSumbit}>
+    <form onSubmit={handleSubmit}>
       <label>
         Title:{" "}
         <input
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder={task.title}  
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
@@ -113,9 +112,7 @@ export default function CreateTask(props) {
           />
         </label>
       </label>
-      <button>Create Task</button>
+      <button>Update Task</button>
     </form>
-  );
+  )
 }
-
-

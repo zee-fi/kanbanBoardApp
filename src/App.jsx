@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import CreateTask from "./components/CreateTask";
-
+import UpdateTask from "./components/UpdateTask";
 function App() {
   const [taskToDisplay, setTaskToDisplay] = useState(kanban);
   const deleteTask = (taskId) => {
@@ -29,9 +29,13 @@ function App() {
       id: nextId,
     };
     const newArr = [newTask, ...taskToDisplay];
-
     setTaskToDisplay(newArr);
   };
+
+  const updateTask = (updatedTask) => {
+    setTaskToDisplay(prev => [...prev.filter(task => task.id !== updatedTask.id), updatedTask])  //takes current state, filters updated task out, adds updated task
+  };
+
   return (
     <>
       <Navbar />
@@ -56,6 +60,10 @@ function App() {
           <Route
             path="/CreateTask"
             element={<CreateTask callBackToCreate={createTask} />}
+          />
+          <Route
+            path="/UpdateTask/:taskId"
+            element={<UpdateTask callBackToUpdate={updateTask} taskToDisplay={taskToDisplay}/>}
           />
         </Routes>
       </div>
