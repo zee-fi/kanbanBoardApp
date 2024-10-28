@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <Link to="/">
-        <img className="logo" src="./src/images/logo.png" />
+        <img className="logo" src="/images/logo.png" />
       </Link>
       <h1>Kanban Board</h1>
     </div>

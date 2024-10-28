@@ -4,7 +4,7 @@ function Sidebar() {
   return (
     <div className="SidebarComponent">
       <Link to="/createTask">
-        <img src="src\images\+.png" alt="+" id="plusSign" />
+        <img src="/images/plus.png" alt="+" id="plusSign" />
       </Link>
       <Link to="/">Home</Link>
       <Link to="./about">About</Link>
