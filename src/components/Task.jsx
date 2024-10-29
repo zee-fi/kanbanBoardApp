@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Task(props) {
-  const navigate = useNavigate(); // Hook for navigation to Home Page
+  const navigate = useNavigate(); // Hook for navigation to Task Details
   const navigateFun = () => {
     navigate(`/details/${props.task.id}`);
   };
   return (
-    <div className="task">
+    <div className="task" draggable onDragStart={props.onDragStart}>
       <h3>{props.task.title}</h3>
       <p>Priority: {props.task.priority}</p>
       {/*switched Link to navigate which is in a

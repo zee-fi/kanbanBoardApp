@@ -17,6 +17,11 @@ function App() {
     });
     setTaskToDisplay(newArray);
   };
+  const updateTaskStatus = (updatedTask) => {
+    setTaskToDisplay((prevTasks) =>
+      prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+  };
 
   const createTask = (newTask) => {
     const ids = taskToDisplay.map((task) => {
@@ -33,7 +38,10 @@ function App() {
   };
 
   const updateTask = (updatedTask) => {
-    setTaskToDisplay(prev => [...prev.filter(task => task.id !== updatedTask.id), updatedTask])  //takes current state, filters updated task out, adds updated task
+    setTaskToDisplay((prev) => [
+      ...prev.filter((task) => task.id !== updatedTask.id),
+      updatedTask,
+    ]); //takes current state, filters updated task out, adds updated task
   };
 
   return (
@@ -49,6 +57,7 @@ function App() {
               <HomePage
                 callBackToDelete={deleteTask}
                 taskToDisplay={taskToDisplay}
+                updateTaskStatus={updateTaskStatus}
               />
             }
           />
@@ -63,7 +72,12 @@ function App() {
           />
           <Route
             path="/UpdateTask/:taskId"
-            element={<UpdateTask callBackToUpdate={updateTask} taskToDisplay={taskToDisplay}/>}
+            element={
+              <UpdateTask
+                callBackToUpdate={updateTask}
+                taskToDisplay={taskToDisplay}
+              />
+            }
           />
         </Routes>
       </div>

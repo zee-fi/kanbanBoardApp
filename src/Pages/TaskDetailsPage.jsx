@@ -11,7 +11,7 @@ export default function TaskDetailsPage(props) {
   });
 
   const UpdateTask = () => {
-    navigate(`/UpdateTask/${taskId}`)
+    navigate(`/UpdateTask/${taskId}`);
   };
 
   return (
@@ -20,6 +20,7 @@ export default function TaskDetailsPage(props) {
       <p>{task.assignee}</p>
       <p>Created on: {task.createdDate}</p>
       <p>Due Date: {task.dueDate}</p>
+      <p>Status: {task.status}</p>
       <button onClick={UpdateTask}>Update Task</button>
     </div>
   );
