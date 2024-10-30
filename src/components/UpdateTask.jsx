@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function UpdateTask (props) {
-
+export default function UpdateTask(props) {
   const { taskId } = useParams();
+  console.log(props.taskToDisplay);
   const newArr = props.taskToDisplay.filter((task) => {
-    return taskId === task.id;
+    return parseInt(taskId) === parseInt(task.id);
   });
-  const task = newArr[0]
+
+  const task = newArr[0];
 
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
@@ -22,7 +23,7 @@ export default function UpdateTask (props) {
     e.preventDefault();
 
     const taskDetails = {
-      id: taskId,
+      id: parseInt(taskId),
       title: title,
       description: description,
       assignee: assignee,
@@ -34,8 +35,7 @@ export default function UpdateTask (props) {
     props.callBackToUpdate(taskDetails);
 
     navigate("/");
-  }  
-
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ export default function UpdateTask (props) {
         <input
           type="text"
           name="title"
-          placeholder={task.title}  
+          placeholder={task.title}
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
@@ -114,5 +114,5 @@ export default function UpdateTask (props) {
       </label>
       <button>Update Task</button>
     </form>
-  )
+  );
 }
