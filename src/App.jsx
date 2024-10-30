@@ -11,6 +11,14 @@ import CreateTask from "./components/CreateTask";
 import UpdateTask from "./components/UpdateTask";
 function App() {
   const [taskToDisplay, setTaskToDisplay] = useState(kanban);
+  let [filteredItems] = useState(kanban); // store tasktoDisplay in new state
+  const search = (query) => {
+    setTaskToDisplay(
+      filteredItems.filter((task) => {
+        return task.title.toLowerCase().includes(query.toLowerCase()); // find tasks with Titles matching what im looking for and it in FilteredItems
+      })
+    );
+  };
   const deleteTask = (taskId) => {
     const newArray = taskToDisplay.filter((task) => {
       return taskId !== task.id; //filter and exclude task with matching ID and store in task to display
@@ -48,7 +56,7 @@ function App() {
     <>
       <Navbar />
       <div className="homeDiv">
-        <Sidebar />
+        <Sidebar callBackToSerch={search} />
 
         <Routes>
           <Route
