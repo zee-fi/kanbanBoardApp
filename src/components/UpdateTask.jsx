@@ -46,6 +46,7 @@ export default function UpdateTask(props) {
           name="title"
           placeholder={task.title}
           value={title}
+          required
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -58,6 +59,7 @@ export default function UpdateTask(props) {
           name="description"
           placeholder="Description"
           value={description}
+          required
           onChange={(e) => {
             setDescription(e.target.value);
           }}
@@ -70,6 +72,7 @@ export default function UpdateTask(props) {
           name="assignee"
           placeholder="Assignee Name"
           value={assignee}
+          required
           onChange={(e) => {
             setAssignee(e.target.value);
           }}
@@ -79,6 +82,7 @@ export default function UpdateTask(props) {
         Status:{" "}
         <select
           value={status}
+          required
           onChange={(e) => {
             setStatus(e.target.value);
           }}
@@ -91,6 +95,7 @@ export default function UpdateTask(props) {
         Priority:{" "}
         <select
           value={priority}
+          required
           onChange={(e) => {
             setPriority(e.target.value);
           }}
@@ -106,6 +111,7 @@ export default function UpdateTask(props) {
             type="date"
             name="dueDate"
             value={dueDate}
+            required
             onChange={(e) => {
               setDueDate(e.target.value);
             }}

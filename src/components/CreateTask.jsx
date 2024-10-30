@@ -39,7 +39,7 @@ export default function CreateTask(props) {
   };
 
   return (
-    <form onSubmit={handleSumbit}>
+    <form onSubmit={handleSumbit} className="CreateTask">
       <label>
         Title:{" "}
         <input
@@ -47,6 +47,7 @@ export default function CreateTask(props) {
           name="title"
           placeholder="Title"
           value={title}
+          required
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -59,6 +60,7 @@ export default function CreateTask(props) {
           name="description"
           placeholder="Description"
           value={description}
+          required
           onChange={(e) => {
             setDescription(e.target.value);
           }}
@@ -71,6 +73,7 @@ export default function CreateTask(props) {
           name="assignee"
           placeholder="Assignee Name"
           value={assignee}
+          required
           onChange={(e) => {
             setAssignee(e.target.value);
           }}
@@ -80,6 +83,7 @@ export default function CreateTask(props) {
         Status:{" "}
         <select
           value={status}
+          required
           onChange={(e) => {
             setStatus(e.target.value);
           }}
@@ -92,6 +96,7 @@ export default function CreateTask(props) {
         Priority:{" "}
         <select
           value={priority}
+          required
           onChange={(e) => {
             setPriority(e.target.value);
           }}
@@ -107,6 +112,7 @@ export default function CreateTask(props) {
             type="date"
             name="dueDate"
             value={dueDate}
+            required
             onChange={(e) => {
               setDueDate(e.target.value);
             }}
@@ -117,5 +123,3 @@ export default function CreateTask(props) {
     </form>
   );
 }
-
-

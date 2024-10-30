@@ -11,17 +11,20 @@ function Sidebar(props) {
 
   return (
     <div className="SidebarComponent">
-      <Link to="/createTask">
+      <Link to="/createTask" className="creatTask">
         <img src="/images/plus.png" alt="+" id="plusSign" />
+        <p>Create Task</p>
       </Link>
+
+      <Link to="/">Home</Link>
+      <Link to="./about">About</Link>
       <input
+        className="search"
         placeholder="Search"
         onChange={(e) => setQuery(e.target.value)} // store value in state
         type="search"
         value={query}
       ></input>
-      <Link to="/">Home</Link>
-      <Link to="./about">About</Link>
     </div>
   );
 }

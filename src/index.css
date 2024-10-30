@@ -46,10 +46,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color:rgb(212, 214, 232);
+  background-color:rgba(212, 214, 232, 0.619);
   cursor: pointer;
   transition: border-color 0.25s;
-  color: rgb(243, 135, 126);
+  color: rgb(187, 111, 104);
   z-index: 50;
   margin: 0.5em;
 }
@@ -95,7 +95,7 @@ button:focus-visible {
 .homeDiv {
   display: flex;
   justify-content: space-between;
-  height: 40em;
+  height: 100%;
 }
 
 .navbar {
@@ -135,8 +135,32 @@ button:focus-visible {
 
 .footer{
   width: 100%;
-  position: relative;
+  position:fixed;
   bottom:0;
   left: 0;
   background-color: lightblue;
+}
+.CreateTask{
+  
+}
+.High{
+  background-color: rgb(243, 135, 126);
+}
+.Medium{
+  background-color: rgba(255, 197, 8, 0.626);
+}
+.creatTask{
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;text-align: center;
+align-content: center;
+}
+.creatTask p{
+  padding: 0;
+  margin: 0;
+  
+}
+.search{
+  margin: 1.5rem 0;
 }
