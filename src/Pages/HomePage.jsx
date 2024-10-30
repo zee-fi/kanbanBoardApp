@@ -10,7 +10,7 @@ export default function Kanban(props) {
   const handleDrop = (status) => {
     // Update the task's status and notify parent if needed
     if (draggedTask) {
-      const updatedTask = { ...draggedTask };
+      const updatedTask = { ...draggedTask, status };
       props.updateTaskStatus(updatedTask); // Call a function from parent to update task
       setDraggedTask(null); // Reset dragged task
     }

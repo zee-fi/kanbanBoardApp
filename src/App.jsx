@@ -13,7 +13,7 @@ function App() {
   const [taskToDisplay, setTaskToDisplay] = useState(kanban);
   const deleteTask = (taskId) => {
     const newArray = taskToDisplay.filter((task) => {
-      return taskId !== task.id;
+      return taskId !== task.id; //filter and exclude task with matching ID and store in task to display
     });
     setTaskToDisplay(newArray);
   };
@@ -38,9 +38,9 @@ function App() {
   };
 
   const updateTask = (updatedTask) => {
-    setTaskToDisplay((prev) => [
-      ...prev.filter((task) => task.id !== updatedTask.id),
+    setTaskToDisplay(() => [
       updatedTask,
+      ...taskToDisplay.filter((task) => task.id !== updatedTask.id),
     ]); //takes current state, filters updated task out, adds updated task
   };
 
