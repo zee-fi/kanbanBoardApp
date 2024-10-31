@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function UpdateTask(props) {
   const { taskId } = useParams();
@@ -34,13 +32,11 @@ export default function UpdateTask(props) {
 
     props.callBackToUpdate(taskDetails);
 
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+    navigate("/");
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <label>
           Title:{" "}
@@ -121,15 +117,8 @@ export default function UpdateTask(props) {
             />
           </label>
         </label>
-        <button
-          onClick={() => {
-            toast("Success!");
-          }}
-        >
-          Update Task
-        </button>
+        <button>Update Task</button>
       </form>
-      <ToastContainer />
     </div>
   );
 }

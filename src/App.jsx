@@ -11,7 +11,8 @@ import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import CreateTask from "./components/CreateTask";
 import UpdateTask from "./components/UpdateTask";
 import NotFoundPage from "./Pages/NotFoundPage";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [taskToDisplay, setTaskToDisplay] = useState([]);
   let [filteredItems, setFilteredItems] = useState([]); // store tasktoDisplay in new state
@@ -76,6 +77,7 @@ function App() {
       .then((response) => {
         console.log("success", response);
         getKanban();
+        toast("Created task successfully");
       })
       .catch((e) => {
         console.log("Error creating new Task", e);
@@ -95,6 +97,7 @@ function App() {
       .then((response) => {
         console.log("Updated Task");
         getKanban();
+        toast("Updated task successfully");
       })
       .catch((e) => console.log("Error,Couldnt Update", e));
   };
@@ -137,6 +140,8 @@ function App() {
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      <ToastContainer closeButton={false} />
+
       <Footer />
     </div>
   );

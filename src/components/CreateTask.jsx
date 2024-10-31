@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "../css/form.css"
+import "../css/form.css";
 
 export default function CreateTask(props) {
   // State variables to store user input for the new task's details
@@ -39,9 +37,8 @@ export default function CreateTask(props) {
     setDueDate("");
 
     // Redirects to the home page
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+
+    navigate("/");
   };
 
   return (
@@ -134,7 +131,6 @@ export default function CreateTask(props) {
           Create Task
         </button>
       </form>
-      <ToastContainer />
     </div>
   );
 }
