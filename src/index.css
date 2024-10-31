@@ -30,6 +30,7 @@ a:hover {
 
 body {
   margin: 0;
+  height: 100vh;
 }
 
 .navbar h1 {
@@ -130,7 +131,6 @@ button:focus-visible {
   background-color: rgb(192, 151, 164);
   display: flex;
   flex-direction: column;
-  
 }
 
 .footer{
@@ -140,9 +140,8 @@ button:focus-visible {
   left: 0;
   background-color: lightblue;
 }
-.CreateTask{
-  
-}
+
+
 .High{
   background-color: rgb(243, 135, 126);
 }
@@ -163,4 +162,26 @@ align-content: center;
 }
 .search{
   margin: 1.5rem 0;
+}
+.appjsx{
+  display: flex;
+  flex-direction: column;
+}
+
+.about{
+
+  height: 80vh;
+
+}
+.about header , .about section{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  background-color: rgb(212, 214, 232);
+  border-radius: 35px;
+ margin: 0 20%;
+}
+.about p{
+  width: 40%;
 }

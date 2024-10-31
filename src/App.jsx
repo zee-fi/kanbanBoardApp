@@ -98,7 +98,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="appjsx">
       <Navbar />
       <div className="homeDiv">
         <Sidebar callBackToSerch={search} />
@@ -135,7 +135,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
