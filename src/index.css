@@ -73,6 +73,7 @@ button:focus-visible {
   justify-content:space-around;
   min-height: 36em;
   width: 100%;
+  
 }
 
 .task, .taskDetails {
@@ -97,6 +98,8 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   height: 100%;
+  
+  
 }
 
 .navbar {
@@ -154,25 +157,24 @@ button:focus-visible {
 
 .search{
   margin: 1.5rem 0;
-}
+  background-color: whitesmoke}
+
 .appjsx{
   display: flex;
   flex-direction: column;
 }
 
+
 .about section{
-
-  height: 80vh;
-  color: rgb(27, 133, 194);
-
-}
-.about header , .about section{
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(212, 214, 232);
   border-radius: 35px;
- margin: 0 20%;
+  margin: 2em 20%;
+  
+  height: 70vh;
+  color: rgb(27, 133, 194);
 }
 .about p{
   width: 40%;
@@ -180,4 +182,7 @@ button:focus-visible {
 .members{
   display: flex;
   justify-content: center;
+}
+.members p{
+  margin: 0 1em;
 }
