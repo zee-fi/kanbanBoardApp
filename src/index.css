@@ -76,7 +76,7 @@ button:focus-visible {
 }
 
 .task, .taskDetails {
-  background-color: rgb(52, 203, 160);
+  background-color: rgba(255, 255, 255, 0.87);
   border: 1px solid black;
   border-radius: 20px;
   margin: 2rem;
@@ -148,18 +148,10 @@ button:focus-visible {
 .Medium{
   background-color: rgba(255, 197, 8, 0.626);
 }
-.creatTask{
-  display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;text-align: center;
-align-content: center;
+.Low{
+  background-color: rgb(52, 203, 160);
 }
-.creatTask p{
-  padding: 0;
-  margin: 0;
-  
-}
+
 .search{
   margin: 1.5rem 0;
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../css/form.css"
 
 export default function CreateTask(props) {
   // State variables to store user input for the new task's details
@@ -44,8 +45,8 @@ export default function CreateTask(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSumbit} className="CreateTask">
+    <div className="form-container">
+      <form onSubmit={handleSumbit} className="CreateTask form-grid">
         <label>
           Title:{" "}
           <input
