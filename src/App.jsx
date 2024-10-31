@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "./assets/apiURL";
 import AboutPage from "./Pages/AboutPage";
-import kanban from "./kanban.json";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
@@ -10,8 +11,28 @@ import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import CreateTask from "./components/CreateTask";
 import UpdateTask from "./components/UpdateTask";
 function App() {
-  const [taskToDisplay, setTaskToDisplay] = useState(kanban);
-  let [filteredItems] = useState(kanban); // store tasktoDisplay in new state
+  const [taskToDisplay, setTaskToDisplay] = useState([]);
+  let [filteredItems, setFilteredItems] = useState([]); // store tasktoDisplay in new state
+
+  useEffect(() => {
+    getKanban(); //get kanban list onetime
+  }, []);
+
+  const getKanban = () => {
+    axios
+      .get(`${API_URL}/kanban.json`)
+      .then((response) => {
+        const array = Object.keys(response.data).map((id) => ({
+          //convert the response from objects to an array
+          id,
+          ...response.data[id],
+        }));
+        array.toReversed(); ///////////////////////////////////////////not working, why?
+        setTaskToDisplay(array);
+        setFilteredItems(array);
+      })
+      .catch((e) => console.log("Error getting kanban list from api~", e));
+  };
   const search = (query) => {
     setTaskToDisplay(
       filteredItems.filter((task) => {
@@ -20,10 +41,17 @@ function App() {
     );
   };
   const deleteTask = (taskId) => {
-    const newArray = taskToDisplay.filter((task) => {
-      return taskId !== task.id; //filter and exclude task with matching ID and store in task to display
-    });
-    setTaskToDisplay(newArray);
+    //const newArray = taskToDisplay.filter((task) => {
+    // return taskId !== task.id; //filter and exclude task with matching ID and store in task to display
+    //});
+    //setTaskToDisplay(newArray);
+    axios
+      .delete(`${API_URL}/kanban/${taskId}.json`)
+      .then((response) => {
+        console.log("Deleted Task");
+        getKanban();
+      })
+      .catch((e) => console.log("Error Deleting Task", e));
   };
   const updateTaskStatus = (updatedTask) => {
     setTaskToDisplay((prevTasks) =>
@@ -32,24 +60,41 @@ function App() {
   };
 
   const createTask = (newTask) => {
-    const ids = taskToDisplay.map((task) => {
-      return task.id;
-    });
-    const maxId = Math.max(...ids);
-    const nextId = maxId + 1;
-    newTask = {
-      ...newTask,
-      id: nextId,
-    };
-    const newArr = [newTask, ...taskToDisplay];
-    setTaskToDisplay(newArr);
+    //const ids = taskToDisplay.map((task) => {
+    // return task.id;
+    //});
+    //const maxId = Math.max(...ids);
+    //const nextId = maxId + 1;
+    // newTask = {
+    //  ...newTask,
+    // id: nextId,
+    // };
+    axios
+      .post(`${API_URL}/kanban.json`, newTask)
+      .then((response) => {
+        console.log("success", response);
+        getKanban();
+      })
+      .catch((e) => {
+        console.log("Error creating new Task", e);
+      });
+    //const newArr = [newTask, ...taskToDisplay];
+    //setTaskToDisplay(newArr);
   };
 
   const updateTask = (updatedTask) => {
-    setTaskToDisplay(() => [
-      updatedTask,
-      ...taskToDisplay.filter((task) => task.id !== updatedTask.id),
-    ]); //takes current state, filters updated task out, adds updated task
+    console.log(updatedTask);
+    //setTaskToDisplay(() => [
+    //  updatedTask,
+    // ...taskToDisplay.filter((task) => task.id !== updatedTask.id),
+    // ]); //takes current state, filters updated task out, adds updated task
+    axios
+      .put(`${API_URL}/kanban/${updatedTask.id}.json`, updatedTask)
+      .then((response) => {
+        console.log("Updated Task");
+        getKanban();
+      })
+      .catch((e) => console.log("Error,Couldnt Update", e));
   };
 
   return (

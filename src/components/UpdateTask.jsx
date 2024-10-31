@@ -4,13 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function UpdateTask(props) {
   const { taskId } = useParams();
-  console.log(props.taskToDisplay);
   const newArr = props.taskToDisplay.filter((task) => {
-    return parseInt(taskId) === parseInt(task.id);
+    return taskId === task.id;
   });
 
   const task = newArr[0];
-
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [assignee, setAssignee] = useState(task.assignee);
@@ -23,7 +21,7 @@ export default function UpdateTask(props) {
     e.preventDefault();
 
     const taskDetails = {
-      id: parseInt(taskId),
+      id: taskId,
       title: title,
       description: description,
       assignee: assignee,

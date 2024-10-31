@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import UpdateTask from "../components/UpdateTask";
 
 export default function TaskDetailsPage(props) {
   const { taskId } = useParams();
@@ -7,7 +6,7 @@ export default function TaskDetailsPage(props) {
   const navigate = useNavigate();
 
   const task = props.taskToDisplay.find((element) => {
-    return parseInt(element.id) === parseInt(taskId); // convert taskId from string to int
+    return element.id === taskId; // convert taskId from string to int
   });
 
   const UpdateTask = () => {
