@@ -88,7 +88,7 @@ button:focus-visible {
   padding: 0.5em;
 }
 
-.task h3, .taskDetails h3 {
+.task h3, .taskDetails h3, h2 {
   color: rgb(27, 133, 194);
   font-weight: bold;
 }
