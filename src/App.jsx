@@ -10,6 +10,8 @@ import HomePage from "./Pages/HomePage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import CreateTask from "./components/CreateTask";
 import UpdateTask from "./components/UpdateTask";
+import NotFoundPage from "./Pages/NotFoundPage";
+
 function App() {
   const [taskToDisplay, setTaskToDisplay] = useState([]);
   let [filteredItems, setFilteredItems] = useState([]); // store tasktoDisplay in new state
@@ -132,6 +134,7 @@ function App() {
               />
             }
           />
+          <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <Footer />

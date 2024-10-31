@@ -40,7 +40,7 @@ export default function UpdateTask(props) {
   };
 
   return (
-    <div className="form-container">
+    <div>
       <form onSubmit={handleSubmit}>
         <label>
           Title:{" "}

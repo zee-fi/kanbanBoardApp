@@ -15,6 +15,7 @@ export default function TaskDetailsPage(props) {
 
   return (
     <div className="taskDetails">
+      <h2>{task.title}</h2>
       <p>{task.description}</p>
       <p>{task.assignee}</p>
       <p>Created on: {task.createdDate}</p>
