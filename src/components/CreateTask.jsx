@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function CreateTask(props) {
   // State variables to store user input for the new task's details
   const [title, setTitle] = useState("");
@@ -35,91 +38,102 @@ export default function CreateTask(props) {
     setDueDate("");
 
     // Redirects to the home page
-    navigate("/");
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
   };
 
   return (
-    <form onSubmit={handleSumbit} className="CreateTask">
-      <label>
-        Title:{" "}
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={title}
-          required
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Description:{" "}
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={description}
-          required
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Assignee:{" "}
-        <input
-          type="text"
-          name="assignee"
-          placeholder="Assignee Name"
-          value={assignee}
-          required
-          onChange={(e) => {
-            setAssignee(e.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Status:{" "}
-        <select
-          value={status}
-          required
-          onChange={(e) => {
-            setStatus(e.target.value);
-          }}
-          name="status"
-        >
-          <option value="To Do">To Do</option>
-          <option value="In Progress"> In Progress</option>
-          <option value="Done">Done</option>
-        </select>
-        Priority:{" "}
-        <select
-          value={priority}
-          required
-          onChange={(e) => {
-            setPriority(e.target.value);
-          }}
-          name="status"
-        >
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-          <option value="High">High</option>
-        </select>
+    <div>
+      <form onSubmit={handleSumbit} className="CreateTask">
         <label>
-          Due Date:{" "}
+          Title:{" "}
           <input
-            type="date"
-            name="dueDate"
-            value={dueDate}
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={title}
             required
             onChange={(e) => {
-              setDueDate(e.target.value);
+              setTitle(e.target.value);
             }}
           />
         </label>
-      </label>
-      <button>Create Task</button>
-    </form>
+        <label>
+          Description:{" "}
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={description}
+            required
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          />
+        </label>
+        <label>
+          Assignee:{" "}
+          <input
+            type="text"
+            name="assignee"
+            placeholder="Assignee Name"
+            value={assignee}
+            required
+            onChange={(e) => {
+              setAssignee(e.target.value);
+            }}
+          />
+        </label>
+        <label>
+          Status:{" "}
+          <select
+            value={status}
+            required
+            onChange={(e) => {
+              setStatus(e.target.value);
+            }}
+            name="status"
+          >
+            <option value="To Do">To Do</option>
+            <option value="In Progress"> In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+          Priority:{" "}
+          <select
+            value={priority}
+            required
+            onChange={(e) => {
+              setPriority(e.target.value);
+            }}
+            name="status"
+          >
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+            <option value="High">High</option>
+          </select>
+          <label>
+            Due Date:{" "}
+            <input
+              type="date"
+              name="dueDate"
+              value={dueDate}
+              required
+              onChange={(e) => {
+                setDueDate(e.target.value);
+              }}
+            />
+          </label>
+        </label>
+        <button
+          onClick={() => {
+            toast("Success!");
+          }}
+        >
+          Create Task
+        </button>
+      </form>
+      <ToastContainer />
+    </div>
   );
 }
