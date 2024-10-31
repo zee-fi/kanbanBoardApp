@@ -160,15 +160,15 @@ button:focus-visible {
   flex-direction: column;
 }
 
-.about{
+.about section{
 
   height: 80vh;
+  color: rgb(27, 133, 194);
 
 }
 .about header , .about section{
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   background-color: rgb(212, 214, 232);
   border-radius: 35px;
@@ -176,4 +176,8 @@ button:focus-visible {
 }
 .about p{
   width: 40%;
+}
+.members{
+  display: flex;
+  justify-content: center;
 }
