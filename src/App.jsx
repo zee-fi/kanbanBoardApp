@@ -27,9 +27,9 @@ function App() {
           id,
           ...response.data[id],
         }));
-        array.toReversed(); ///////////////////////////////////////////not working, why?
-        setTaskToDisplay(array);
-        setFilteredItems(array);
+        const newarr = array.toReversed();
+        setTaskToDisplay(newarr);
+        setFilteredItems(newarr);
       })
       .catch((e) => console.log("Error getting kanban list from api~", e));
   };
