@@ -33,11 +33,18 @@ body {
   height: 100vh;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgb(27, 133, 194);
+}
+
 .navbar h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin:  2% 30%;
+  font-size: clamp(2em, 2.5vw, 3em);
   color: rgb(255, 196, 8);
+  margin: 0;
 }
 
 button {
@@ -51,7 +58,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   color: rgb(187, 111, 104);
-  z-index: 50;
   margin: 0.5em;
 }
 
@@ -64,15 +70,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.logo{
-  height:7em;
+.logo {
+  height: 6em;
+  width: auto;
 }
 
 .kanban {
   display: flex;
   justify-content:space-around;
-  min-height: 36em;
+  flex-wrap: wrap;
   width: 100%;
+  margin: 2rem 0;
 }
 
 .task, .taskDetails {
@@ -80,7 +88,8 @@ button:focus-visible {
   border: 1px solid black;
   border-radius: 20px;
   margin: 2rem;
-  z-index: 10;
+  flex: 1 1 300px; 
+  max-width: 400px;
 }
 
 .task p, .taskDetails p {
@@ -126,46 +135,49 @@ button:focus-visible {
   width: 2rem;
   height: 2rem;
 }
-.SidebarComponent{
+
+.SidebarComponent {
   padding: 1rem;
   background-color: rgb(192, 151, 164);
   display: flex;
   flex-direction: column;
 }
 
-.footer{
+.footer {
   width: 100%;
-  position:fixed;
-  bottom:0;
-  left: 0;
+  padding: 1rem;
+  text-align: center;
   background-color: lightblue;
+  color: #242424;
+  position: relative;
+  bottom: 0;
 }
 
+/* priority labels*/
+.High { background-color: rgb(243, 135, 126); }
+.Medium { background-color: rgba(255, 197, 8, 0.626); }
+.Low { background-color: rgb(52, 203, 160); }
 
-.High{
-  background-color: rgb(243, 135, 126);
-}
-.Medium{
-  background-color: rgba(255, 197, 8, 0.626);
-}
-.Low{
-  background-color: rgb(52, 203, 160);
-}
 
 .search{
   margin: 1.5rem 0;
 }
+
 .appjsx{
   display: flex;
   flex-direction: column;
 }
 
 .about section{
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   height: 80vh;
   color: rgb(27, 133, 194);
-
 }
+
+
 .about header , .about section{
   display: flex;
   flex-direction: column;
@@ -180,4 +192,51 @@ button:focus-visible {
 .members{
   display: flex;
   justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 1.8em;
+  }
+
+  .kanban {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task, .taskDetails {
+    max-width: 90%;
+  }
+
+  .form-container {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .about header, .about section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar h1 {
+    font-size: 1.6em;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+  }
+
+  .logo {
+    height: 5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .SidebarComponent {
+    display: none; /* Hide the sidebar */
+  }
 }
