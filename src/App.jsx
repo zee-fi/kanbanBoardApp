@@ -77,7 +77,7 @@ function App() {
       .then((response) => {
         console.log("success", response);
         getKanban();
-        toast("Created task successfully");
+        toast(`${newTask.title} Created`);
       })
       .catch((e) => {
         console.log("Error creating new Task", e);
@@ -97,7 +97,7 @@ function App() {
       .then((response) => {
         console.log("Updated Task");
         getKanban();
-        toast("Updated task successfully");
+        toast(`${updatedTask.title} updated`);
       })
       .catch((e) => console.log("Error,Couldnt Update", e));
   };
