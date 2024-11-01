@@ -13,24 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  text-align: center;
-}
-
-a {
-  font-weight: 500;
-  color: rgb(97, 48, 44);
-  text-decoration: inherit;
-  margin: 0.5em;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   height: 100vh;
+  text-align: center;
 }
 
 .navbar {
@@ -44,35 +30,27 @@ body {
 .navbar h1 {
   font-size: clamp(2em, 2.5vw, 3em);
   color: rgb(255, 196, 8);
-  margin: 0;
+  margin: 50%;
+  position: absolute;
 }
 
-button {
-  border-radius: 10px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color:rgba(212, 214, 232, 0.619);
-  cursor: pointer;
-  transition: border-color 0.25s;
-  color: rgb(187, 111, 104);
-  margin: 0.5em;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 .logo {
-  height: 6em;
-  width: auto;
+  height: auto;
+  width: 6em;
+}
+
+.homeDiv {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.SidebarComponent {
+  padding: 1rem;
+  background-color: rgb(192, 151, 164);
+  display: flex;
+  flex-direction: column;
 }
 
 .kanban {
@@ -81,6 +59,13 @@ button:focus-visible {
   flex-wrap: wrap;
   width: 100%;
   margin: 2rem 0;
+}
+
+.listColumn {
+  background-color: rgb(212, 214, 232);
+  border-radius: 35px;
+  margin: 10px;
+  min-width: 30%;
 }
 
 .task, .taskDetails {
@@ -102,31 +87,23 @@ button:focus-visible {
   font-weight: bold;
 }
 
-.homeDiv {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  
-  
+
+a {
+  font-weight: 500;
+  color: rgb(97, 48, 44);
+  text-decoration: inherit;
+  margin: 0.5em;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(27, 133, 194);
+a:hover {
+  color: #535bf2;
 }
 
-.listColumn {
-  background-color: rgb(212, 214, 232);
-  border-radius: 35px;
-  margin: 10px;
-  min-width: 30%;
 
-}
 
 .taskDetails {
   width: 50%;
-  margin: 10em 20em;
+  margin: 8em 20em;
 }
 
 .listColumn h1 {
@@ -138,12 +115,6 @@ button:focus-visible {
   height: 2rem;
 }
 
-.SidebarComponent {
-  padding: 1rem;
-  background-color: rgb(192, 151, 164);
-  display: flex;
-  flex-direction: column;
-}
 
 .footer {
   width: 100%;
@@ -166,11 +137,6 @@ button:focus-visible {
   color: black;
   background-color: whitesmoke}
 
-
-.appjsx{
-  display: flex;
-  flex-direction: column;
-}
 
 
 .about section{
@@ -200,6 +166,28 @@ button:focus-visible {
 .members{
   display: flex;
   justify-content: center;
+}
+button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color:rgba(212, 214, 232, 0.619);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: rgb(187, 111, 104);
+  margin: 0.5em;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 
